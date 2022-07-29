@@ -1,0 +1,20 @@
+
+Se solicita una REST API en NodeJS la cual permita a los usuarios 
+crear anuncios de texto de no mas de 500 caracteres.
+
+Se necesitan los siguientes endpoints
+/auth
+  /login   --> POST url: http://localhost:3000/auth/login body: { "correo": "", "password": "" }
+  /register --> POST url: http://localhost:3000/auth/register   body:{"nombre": "","apellido": "","correo": "","password": ""}
+  /forgot_password
+     /request   # Crea un nuevo codigo de reseteo de contraseña --> POST url: http://localhost:3000/auth/forgot_password/request body:{"id": 0}
+     /new  # Recibe codigo y nueva contraseña, lo valida en base de dato --> POST url: http://localhost:3000/auth/forgot_password/new body:{ "codeReseteo": "","password":""}
+/posts
+  / # Devuelve todos los posts por orden de fecha (Se require paginado) --> GET url: http://localhost:3000/posts query: ?page=1
+  /new # Agrega un nuevo post --> POST url: http://localhost:3000/posts/new body: {"titulo": "","descripcion": "", "fecha": ""}
+
+
+
+Modulo instalados
+ npm i mysql express nodemon dotenv --save-dev
+ npm install --save uuid
